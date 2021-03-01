@@ -1,0 +1,22 @@
+body{
+    overflow: hidden;
+    font-family: 'muli',sans-serif;
+    font-weight: 300;
+    color: var(--primary);
+}
+a:hover{
+    text-decoration: none;
+}
+.bg{
+    background-color: rgb(8, 8, 88);
+}
+#sidebar-container{
+    min-height: 90vh;
+}
+#sidebar-container .logo{
+    padding: .875rem 1.25rem;
+    
+}
+#sidebar-container .menu{
+    width: 18rem;
+}

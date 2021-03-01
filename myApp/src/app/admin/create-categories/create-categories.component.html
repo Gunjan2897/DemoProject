@@ -1,0 +1,20 @@
+<form [formGroup]="CreateForm">
+        
+        <div class="controles-container">
+          <mat-form-field>
+            <input formControlName="title" matInput placeholder="category">
+          </mat-form-field>
+          <mat-form-field>
+            <input formControlName="status" matInput placeholder="status">
+          </mat-form-field>
+        </div>
+          <div class="button-row">
+            <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+            <button mat-raised-button mat-dialog-close color="warn"><mat-icon>close</mat-icon></button>
+         
+          </div>
+        
+  </form>
+
+
+  

@@ -1,0 +1,13 @@
+
+body{
+    overflow: hidden;
+    font-family: 'muli',sans-serif;
+    font-weight: 300;
+    color: var(--primary);
+}
+a:hover{
+    text-decoration: none;
+}
+.bg{
+    background-color: rgb(166, 166, 187);
+}

@@ -1,0 +1,57 @@
+<app-navbar></app-navbar>                                               
+<div class="d-flex">                        
+  <div>
+    <app-sidebar></app-sidebar>
+  </div>
+
+  <div>
+    <div class="search-div p-3">
+      <button mat-raised-button color="warn" (click)="onCreate()">
+        <mat-icon>add</mat-icon>Create
+      </button>
+      <mat-form-field class="search-form-field" floatLabel="never">
+        <input matInput [(ngModel)]="searchKey" placeholder="search" autocomplete="off" (keyup)="applyFilter()">
+        <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+
+    <div class="mat-elevation-z8">
+      <p class="text-primary">Categories Details...</p>
+      <mat-table [dataSource]="cateDataSource" matSort (matSortChange)="Sort($event)">
+
+        <ng-container matColumnDef="Title">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
+          <td mat-cell *matCellDef="let category"> {{category.title}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="Status">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> status </th>
+          <td mat-cell *matCellDef="let category"> {{category.status}}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> actions </th>
+          <td mat-cell *matCellDef="let category">
+            <button mat-icon-button color="accent"  (click)="onCreate(category._id)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="RemoveCate(category._id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedCategories"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedCategories;"></tr>
+      </mat-table>
+      <mat-paginator [pageSizeOptions]="[5,10,25,100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+    </div>
+
+  </div>
+</div>
+
+

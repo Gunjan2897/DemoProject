@@ -1,0 +1,37 @@
+<form [formGroup]="CreateProdForm">
+        
+    <div class="controles-container">
+      <mat-form-field class="p-4">
+        <input formControlName="productName" matInput placeholder="productName">
+      </mat-form-field>
+
+      <mat-form-field class="p-4">
+        <!-- <input formControlName="categoryName" matInput placeholder="categoryName"> -->
+        <mat-select name="" id="" formControlName="categoryName" placeholder="Categories">
+          <mat-option *ngFor="let category of category"  [value]="category.title">
+            {{category.title}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="p-4">
+        <input formControlName="price" matInput placeholder="price">
+      </mat-form-field>
+      
+      <input formControlName="productImage" type="file" (change)="selectImage($event)">
+      
+     
+      <mat-form-field class="p-2">
+        <input formControlName="Description" matInput placeholder="Description">
+      </mat-form-field>
+
+    </div>
+      <div class="button-row">
+        <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+        <button mat-raised-button mat-dialog-close color="warn"><mat-icon>close</mat-icon></button>
+     
+      </div>
+    
+</form>
+
+

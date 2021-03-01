@@ -1,0 +1,37 @@
+<app-header></app-header>
+
+<section id="form">
+    <!--form-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-1">
+                <div class="login-form">
+                    <!--login form-->
+                    <h2>Login to your account</h2>
+                    <form [formGroup]="loginForm">
+                       
+                            <input type="email"  class="form-control" formControlName='email' placeholder="email" >
+                                    <span class="text-danger" *ngIf="loginForm.get('email').touched && loginForm.get('email').invalid">
+                                        *Please enter your emailid.</span>
+                                        <small class="text-danger" *ngIf="loginForm.get('email').errors?.pattern">Email address is invalid</small>
+                           
+                    
+                           
+                            <input type="password"  class="form-control" formControlName='password' placeholder="password" >
+                                    <span class="text-danger" *ngIf="loginForm.get('password').touched && loginForm.get('password').invalid">
+                                        *Please enter your password.</span>
+                           
+                        <button type="submit" [disabled]="!loginForm.valid" (click)="onLogin()" class="btn btn-default">Sign-in</button>
+                    </form>
+                </div>
+                <!--/login form-->
+            </div>
+            <div class="col-sm-1">
+                <h2 class="or">OR</h2>
+            </div>
+            <div class="col-sm-4">
+                <app-signup></app-signup>
+            </div>
+        </div>
+    </div>
+</section>

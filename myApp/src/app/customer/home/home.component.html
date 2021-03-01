@@ -1,0 +1,47 @@
+<app-header></app-header>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="left-sidebar">
+                    <h2>Category</h2>
+
+                    <div class="panel-group category-products" id="accordian">
+                        <!--category-products-->
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title" *ngFor="let category of category">
+                                    <a (click)="onSelect(category.title)">{{category.title}}</a>
+                                </h4>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--/category-products-->
+                </div>
+            </div>
+
+            <div class="col-sm-9 padding-right">
+                <div class="features_items">
+                    <!--features_items-->
+                    <h2 class="title text-center">Features Items</h2>
+                    <div class="row">
+                        <div class="col-sm-4" *ngFor="let product of items">
+                            <img src="http://localhost:8080/uploads/{{product.productImage}}" width="250px"
+                                height="250px">
+                            <h2>{{product.price | currency:'INR'}}</h2>
+                            <p>{{product.Description  | slice:0:10}}...</p>
+                            <a class="btn btn-default add-to-cart" (click)="addCart(product._id)"><i class="fa fa-shopping-cart"></i>Add to
+                                cart</a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!--features_items-->
+            </div>
+        </div>
+    </div>
+
+</section>
